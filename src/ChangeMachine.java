@@ -43,16 +43,21 @@ public class ChangeMachine {
 		ArrayList<Integer> changeList = new ArrayList<>();
 		for(;left != 0;) {
 			int index = 0;
+			boolean found = false;
 			for(; index < coins.size(); index++) {
 				int coin = coins.get(index);
 				if(coin <= left) {
 					left -= coin;
 					coins.remove(index);
 					changeList.add(coin);
+					found = true;
 					break;
 				}
 			}
-			if (index == coins.size()) break;
+			if(!found) {
+				System.out.println("Ran out of change");
+				break;
+			}
 		}
 
 		return changeList;
