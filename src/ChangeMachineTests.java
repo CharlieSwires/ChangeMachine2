@@ -40,6 +40,22 @@ class ChangeMachineTests {
 		List<Integer> expectedResult = toList(array);
 		Assert.assertTrue("574 = 200, 200, 100, 50, 20, 2, 2", change.equals(expectedResult));
 	}
+	@Test
+	void test5() {
+		ChangeMachine changeMachine = new ChangeMachine();
+		List<Integer> change = changeMachine.change(Arrays.asList(200, 100, 20, 200, 10, 5, 50, 2, 1, 1), 574);
+		int[] array = {200, 200, 100, 50, 20, 2, 1, 1};
+		List<Integer> expectedResult = toList(array);
+		Assert.assertTrue("574 = 200, 200, 100, 50, 20, 2, 1, 1", change.equals(expectedResult));
+	}
+	@Test
+	void test6() { //close but ran out of coins
+		ChangeMachine changeMachine = new ChangeMachine();
+		List<Integer> change = changeMachine.change(Arrays.asList(200, 100, 20, 200, 10, 5, 50, 2, 1), 574);
+		int[] array = {200, 200, 100, 50, 20, 2, 1};
+		List<Integer> expectedResult = toList(array);
+		Assert.assertTrue("574 = 200, 200, 100, 50, 20, 2, 1", change.equals(expectedResult));
+	}
 
 	static List<Integer> toList(int[] array){
 		ArrayList<Integer> arrayList = new ArrayList<>();
