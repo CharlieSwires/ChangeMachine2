@@ -42,7 +42,8 @@ public class ChangeMachine {
 		int left = i;
 		ArrayList<Integer> changeList = new ArrayList<>();
 		for(;left != 0;) {
-			for(int index = 0; index < coins.size(); index++) {
+			int index = 0;
+			for(; index < coins.size(); index++) {
 				int coin = coins.get(index);
 				if(coin <= left) {
 					left -= coin;
@@ -51,6 +52,7 @@ public class ChangeMachine {
 					break;
 				}
 			}
+			if (index == coins.size()) break;
 		}
 
 		return changeList;
